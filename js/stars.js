@@ -13,16 +13,29 @@ $(function() {
             top: y, left: x
         });
 
+        var size = 100;
+        var factor = 1;
+        var func = Math.ceil;
+        var interval = setInterval(
+            function() {
+                size = func(size * factor);
+                $star.css('font-size', String(size) + '%');
+                if (size == 0) {
+                    clearInterval(interval);
+                    $star.remove(); 
+                }
+            }, 200
+        );
         $star
             .bind('mouseup', function() {
-		var size = 100;
-	        var $star = $(this);
-		setInterval(
-		    function() {
-			size = size + 5;
-                        $star.css('font-size', String(size) + '%');
-		    }, 100
-		);
+                if (factor <= 1) {
+                    factor = 1.10;
+                    func = Math.ceil;
+                }
+                else {
+                    factor = 0.90;
+                    func = Math.floor;
+                }
                 return false;
             })
             .bind('click', function() {
