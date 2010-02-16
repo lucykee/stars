@@ -4,3 +4,12 @@ Lucy's first programming project.
 
 * Lucy Kee
 * Ingy dot Net
+
+== Programming Notes
+
+=== Git commands
+
+* git pull         - Pull from github
+* git push         - Push to github
+* git commit -a    - Commit changes you made
+* git checkout .   - Reset bad changes
